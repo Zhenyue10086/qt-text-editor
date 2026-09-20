@@ -1,0 +1,9 @@
+# Qt相关忽略
+build/
+.qtcreator/
+*.pro.user
+*.pro.user.*
+ui_*.h
+*.o
+*.exe
+*.log
