@@ -9,7 +9,7 @@ debug/
 Makefile
 Makefile.*
 .qmake.stash
-.ui_*.h
+ui_*.h
 moc_*.cpp
 moc_*.h
 qrc_*.cpp
