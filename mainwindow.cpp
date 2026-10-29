@@ -236,7 +236,10 @@ bool MainWindow::calculate(double a, const QString &op, double b, double &result
 
 QString MainWindow::formatNumber(double v)
 {
-    // 整数时去掉小数点；否则用 15 位有效数字的科学计数格式输出
+    // 消除 -0 以及浮点误差（例如 0.1 + 0.2 会得到 0.30000000000000004）
+    if (std::abs(v) < 1e-12)
+        v = 0.0;
+    // 整数时去掉小数点；否则用 15 位有效数字输出
     if (std::abs(v) < 1e15 && std::floor(v) == v)
         return QString::number(static_cast<qint64>(v));
     QString s = QString::number(v, 'g', 15);
